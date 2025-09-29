@@ -50,17 +50,17 @@ export default function Home() {
             <td></td>
             <td></td>
             <td></td>
-            
+
           </tr>
           <tr>
             <th scope="row">10-11:50</th>
             <td>
-            software engineering
+              software engineering
             </td>
             <td>
             </td>
             <td>
-            software engineering
+              software engineering
             </td>
             <td>
             </td>
@@ -71,12 +71,12 @@ export default function Home() {
           <tr>
             <th scope="row">12-1:50</th>
             <td>
-            adv web dev
+              adv web dev
             </td>
             <td>
             </td>
             <td>
-            adv web dev
+              adv web dev
             </td>
             <td></td>
             <td></td>
