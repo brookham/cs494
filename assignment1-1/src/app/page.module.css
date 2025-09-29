@@ -1,0 +1,47 @@
+.my-table {
+  width: 100%;
+  border-collapse: collapse;           /* clean borders */
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 0.95rem;
+  background-color: #fafafa;           /* subtle background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Header row */
+.my-table thead th {
+  background: #4a6fa5;                 /* deep blue header */
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid #d0d0d0;
+}
+
+/* Body cells */
+.my-table td {
+  border: 1px solid #d0d0d0;           /* light-gray border on every cell, blank or not */
+  padding: 10px 12px;
+  text-align: center;
+  min-height: 2.5em;                   /* ensures empty cells stay visible */
+}
+
+/* Zebra striping for readability */
+.my-table tbody tr:nth-child(even) {
+  background: #f1f5fb;
+}
+
+/* Hover effect */
+.my-table tbody tr:hover {
+  background: #e8f0fe;
+  transition: background 0.2s ease-in-out;
+}
+
+.my-table th[scope="row"] {
+  background: #f0f0f0;     /* subtle shading to distinguish titles */
+  font-weight: 600;
+  text-align: left;        /* left-align the time text */
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  width: 120px;            /* optional fixed width */
+}
