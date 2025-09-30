@@ -1,13 +1,6 @@
-
-import styles from "./page.module.css";
+import style from "./page.module.css";
 
 export default function Home() {
-
-  const daysOfWeek = ["Sunday", "Monday", "Tuesday"]
-
-  function greet(name: string) {
-    return `Hello, ${name}`
-  }
 
   const daysAndActivities = [
     {
@@ -26,12 +19,9 @@ export default function Home() {
   ]
 
   return (
-    <div className={styles.myDiv}>
-      <h1 className={styles.myHeader}>{greet("Brook")}</h1>
-
       <div>
         <h3>My Schedule</h3>
-        <table>
+        <table className={style.scheduleTable}>
           <thead>
             <tr>
               <th>{daysAndActivities[0].day}</th>
@@ -45,14 +35,8 @@ export default function Home() {
               <td>{daysAndActivities[1].activity}</td>
               <td>{daysAndActivities[2].activity}</td>
             </tr>
-            
           </tbody>
         </table>
       </div>
-      <div>
-        <p>PI = {Math.PI}</p>
-        <p>2PI = {2 * Math.PI}</p>
-      </div>
-    </div>
   );
 }
