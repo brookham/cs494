@@ -1,5 +1,7 @@
 import style from "./page.module.css";
 
+import HeaderTable from "@/component/headerTable";
+
 export default function Home() {
 
   const daysAndActivities = [
@@ -20,6 +22,7 @@ export default function Home() {
 
   return (
       <div>
+        <HeaderTable/>
         <h3>My Schedule</h3>
         <table className={style.scheduleTable}>
           <thead>

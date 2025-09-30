@@ -1,6 +1,8 @@
 
 import styles from "./page.module.css";
 
+import HeaderTable from "@/component/headerTable";
+
 export default function Home() {
 
   const daysOfWeek = ["Sunday", "Monday", "Tuesday"]
@@ -27,6 +29,7 @@ export default function Home() {
 
   return (
     <div className={styles.myDiv}>
+      <HeaderTable/>
       <h1 className={styles.myHeader}>{greet("Brook")}</h1>
 
       <div>
