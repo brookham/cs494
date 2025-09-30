@@ -1,0 +1,9 @@
+.myHeader {
+    text-align: center;
+    color:rgb(15, 15, 119);
+}
+
+.myDiv {
+    display: inline-block;
+    width: 100%
+}
