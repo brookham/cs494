@@ -1,0 +1,60 @@
+{
+  "start": {
+    "text": "welcome! make the first choice of your adventure!",
+    "options": {
+      "tavern": "get a drink in the tavern.",
+      "woods": "venture into the woods."
+    }
+  },
+  "tavern": {
+    "text": "you're in the tavern!",
+    "options": {
+      "drink": "have a drink at the bar",
+      "play pool": "approach scary guy to play pool"
+    },
+    "drink": {
+      "text": "you get super drunk and fall over, hit your head, and die unfortunately.",
+      "options": {
+        "restart": "try again?"
+      }
+    },
+    "play pool": {
+      "text": "the scary guy glares at you, then smiles. you play pool together and actually have fun. he buys you a drink. congratulations, you made a friend!",
+      "options": {
+        "restart": "play again?"
+      }
+    }
+  },
+  "woods": {
+    "text": "you have entered the spooky woods",
+    "options": {
+      "light torch": "light your torch",
+      "proceed in the dark": "proceed in the dark"
+    },
+    "light torch": {
+      "text": "you light your torch, revealing a humungous spider repelling over your head!",
+      "options": {
+        "run": "run away",
+        "fight": "fight the beast"
+      },
+      "run": {
+        "text": "you run as fast as you can, tripping over roots. the spider chases, but you make it back to town safely.",
+        "options": {
+          "restart": "start again?"
+        }
+      },
+      "fight": {
+        "text": "you swing your torch wildly! the spider hisses, bursts into flame, and scurries away. you find a treasure chest in its web!",
+        "options": {
+          "restart": "play again?"
+        }
+      }
+    },
+    "proceed in the dark": {
+      "text": "you stumble in the dark, hearing rustling all around. suddenly, glowing eyes appear... it's a pack of wolves. they pounce, and sadly, that's the end of your story.",
+      "options": {
+        "restart": "try again?"
+      }
+    }
+  }
+}
