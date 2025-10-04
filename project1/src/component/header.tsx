@@ -2,6 +2,8 @@ import Link from "next/link"
 
 export default function HeaderTable() {
     return (
+        <div>
+            <h1>Brooks Portfolio Page</h1>
         <table>
             <tbody>
                 <tr>
@@ -11,5 +13,6 @@ export default function HeaderTable() {
                 </tr>
             </tbody>
         </table>
+        </div>
     )
 }
