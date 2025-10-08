@@ -1,38 +1,31 @@
-import Image from "next/image"
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import { ImageInfo } from "@/type/imageInfo"
+
+import ImageCard from "@/components/imageCard"
+
+import { Box, Typography } from "@mui/material"
+
+import ImageBox from "@/components/imageBox"
+
 
 const url = "https://boringapi.com/api/v1/photos"
+
 
 
 export default async function Home() {
   const r = await fetch(url)
   const data = await r.json()
 
-  const photoUrls: string[] = []
+  const photoData: ImageInfo[] = []
 
-  for (let i = 0; i < data.photos.length; i++){
-    
-    photoUrls.push(data.photos[i].url)
-    
+
+
+  for (let i = 0; i < data.photos.length; i++) {
+    photoData.push(data.photos[i])
   }
 
-  console.log(photoUrls)
- 
   return (
     <main>
-      <div>
-        <Carousel>
-          
-        {
-          photoUrls.map((x,i)=>(
-            <Image alt={x} key={i} src={x} width={800} height={800} style={{objectFit: "cover"}}/>
-          )
-        )
-        }
-        </Carousel>
-
-      </div>
+      <ImageBox photoData={photoData}/>
     </main>
   );
 }
