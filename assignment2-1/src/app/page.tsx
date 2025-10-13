@@ -1,15 +1,10 @@
 import { ImageInfo } from "@/type/imageInfo"
+import ImagesBox from "@/components/imagesBox"
 
-import ImageCard from "@/components/imageCard"
-
-import { Box, Typography } from "@mui/material"
-
-import ImageBox from "@/components/imageBox"
+import { fetchImageRGB } from '@/utils/imageData'
 
 
 const url = "https://boringapi.com/api/v1/photos"
-
-
 
 export default async function Home() {
   const r = await fetch(url)
@@ -17,15 +12,13 @@ export default async function Home() {
 
   const photoData: ImageInfo[] = []
 
-
-
   for (let i = 0; i < data.photos.length; i++) {
     photoData.push(data.photos[i])
   }
 
   return (
     <main>
-      <ImageBox photoData={photoData}/>
+      <ImagesBox photoData={photoData} />
     </main>
   );
 }

@@ -1,10 +1,10 @@
 {
-  "name": "assignment2-1",
+  "name": "project2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -14,9 +14,7 @@
     "@mui/material": "^7.3.4",
     "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-responsive-carousel": "^3.2.23",
-    "sharp": "^0.34.4"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
