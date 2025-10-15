@@ -1,3 +1,5 @@
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
+
 import { TableContainer, Table, TableHead, TableBody } from "@mui/material"
 
 import StyledTableRow from "@/components/styledTableRow"
@@ -6,10 +8,19 @@ import StyledTableCell from "@/components/styledTableCell"
 
 import { MtgCard } from "@/types/mtgCard"
 
-
 import Image from "next/image"
 
+import { useState } from "react"
+
 export default function MtgTable(props: { cards: MtgCard[] }) {
+
+    const [sortedCards, setSortedCards] = useState<MtgCard[]>(props.cards)
+
+    function sort(col: "cmc"){
+        if (col == "cmc")
+        setSortedCards([...sortedCards.sort((a: MtgCard, b: MtgCard) => a[col] - b[col])]) //ascending order
+    }
+
     return (
         <TableContainer>
             <Table>
@@ -18,14 +29,14 @@ export default function MtgTable(props: { cards: MtgCard[] }) {
                         <StyledTableCell>Name</StyledTableCell>
                         <StyledTableCell>Image</StyledTableCell>
                         <StyledTableCell>ManaCost</StyledTableCell>
-                        <StyledTableCell>CMC</StyledTableCell>
+                        <StyledTableCell width={60}>CMC<UnfoldMoreIcon sx={{verticalAlign: "middle"}} onClick={()=>{sort("cmc")}} /></StyledTableCell>
                         <StyledTableCell>Oracle Text</StyledTableCell>
                         <StyledTableCell>Flavor Text</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
                 <TableBody>
                     {
-                        props.cards.map((card, i) => (
+                        sortedCards.map((card, i) => (
                             <StyledTableRow key={i}>
                                 <StyledTableCell>{card.name}</StyledTableCell>
                                 <StyledTableCell><Image alt={card.name} width={50} height={70} src={card.image}/></StyledTableCell>
