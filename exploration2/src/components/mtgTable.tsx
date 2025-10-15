@@ -18,11 +18,17 @@ export default function MtgTable(props: { cards: MtgCard[] }) {
 
     const [ascending, setAscending] = useState<boolean>(true)
 
-    function sort(col: "cmc"){
-        if (col == "cmc")
+    function sort(col: "cmc" | "name" | "oracleText" | "flavorText"){
+        if (col == "cmc"){
+            //number sort
         setSortedCards([...sortedCards.sort((a: MtgCard, b: MtgCard) => ascending ? a[col] - b[col] : b[col] - a[col])])
-        
-        setAscending(!ascending)
+        }
+        else {
+        //string sort
+         setSortedCards([...sortedCards.sort((a: MtgCard, b: MtgCard) => ascending ? a[col].localeCompare(b[col]) : b[col].localeCompare(a[col]))])
+        }
+
+    setAscending(!ascending)
     }
 
     return (
@@ -30,12 +36,12 @@ export default function MtgTable(props: { cards: MtgCard[] }) {
             <Table>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell>Name</StyledTableCell>
+                        <StyledTableCell>Name<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("name")}}/></StyledTableCell>
                         <StyledTableCell>Image</StyledTableCell>
                         <StyledTableCell>ManaCost</StyledTableCell>
                         <StyledTableCell width={60}>CMC<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("cmc")}} /></StyledTableCell>
-                        <StyledTableCell>Oracle Text</StyledTableCell>
-                        <StyledTableCell>Flavor Text</StyledTableCell>
+                        <StyledTableCell>Oracle Text<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("oracleText") }}/></StyledTableCell>
+                        <StyledTableCell>Flavor Text<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("flavorText") }}/></StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
                 <TableBody>
