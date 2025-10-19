@@ -102,23 +102,9 @@ export default function PokemonTable(props: { cards: Pokemon[] }) {
                 margin: '4px auto',
                 cursor: "pointer"
             }} onClick={()=>{add ? addTypeFilter(type) : deleteTypeFilter(type)}}>{type}</Box>)
-        // else{
-        //     return (<Box key={i} sx={{
-        //         backgroundColor: "#615f5fff",
-        //         display: 'flex',
-        //         alignItems: 'center',
-        //         justifyContent: 'center',
-        //         color: '#ffffffff',
-        //         borderRadius: '9999px',
-        //         padding: '4px 14px',
-        //         fontSize: 14,
-        //         fontWeight: 500,
-        //         width: 'fit-content',
-        //         textTransform: 'capitalize',
-        //         margin: '4px auto',
-        //         cursor: "pointer"
-        //     }} onClick={()=>{add ? addTypeFilter(type) : deleteTypeFilter(type)}}>{type}</Box>)
-        // }
+        else{
+            return <span key={i}>{type}</span>
+        }
     }
     function getAblityFromAbilities(type: string, i:number, add: boolean){
         return (<Box key={i} sx={{
@@ -157,7 +143,7 @@ export default function PokemonTable(props: { cards: Pokemon[] }) {
             <Table>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell>Id<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("id")}} /></StyledTableCell>
+                        <StyledTableCell>No.<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("id")}} /></StyledTableCell>
                         <StyledTableCell onClick={imageType} sx={{cursor: "pointer"}}>{isShiny ? "Shiny" : "Image"}</StyledTableCell>
                         <StyledTableCell>Name<UnfoldMoreIcon sx={{verticalAlign: "middle", cursor: "pointer"}} onClick={()=>{sort("name")}} /></StyledTableCell>
                         <StyledTableCell>Types {typeFilter.map((filter, i)=>getTypeFromTypes(filter, i, false))}</StyledTableCell>
