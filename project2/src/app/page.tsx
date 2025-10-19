@@ -9,7 +9,6 @@ import PokemonTable from "@/components/pokemonTable";
 export default function Home() {
 
   const cards = pokemon_data.map((data)=>mapPokemon(data))
-  console.log(cards)
 
   return (
     <main>
