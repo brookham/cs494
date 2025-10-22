@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, TextField } from "@mui/material"
+import { Box, TextField, Typography } from "@mui/material"
 
 import { useEffect, useState } from "react";
 
@@ -10,10 +10,19 @@ export default function Home() {
 
   const [savedWord, setSavedWord] = useState<string>("") //saves submitted word
 
+  const [response, setResponse] = useState<string | undefined>(undefined)
+
+  useEffect(()=>{
+    fetch("/api/word?word=test")                  //gets the GET function for route.ts
+    .then((res)=>res.json())            //gets the json data from the response
+    .then((data)=>setResponse(data.message))  //gets the data from the json
+  }, [])
+
   useEffect(()=>{console.log(savedWord)}, [savedWord])
 
   return (
     <Box>
+      <Typography variant="h4">{response ?? "loading"}</Typography>
       <TextField
       id="word-text"
       label="Word"
