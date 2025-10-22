@@ -37,12 +37,12 @@ export default function ImageForm(){
             />
             <Button onClick={()=>{submitSearch()}}>Submit</Button>
             <Box>
-                {imageUrls.map((url: string, i: number)=>
+                {imageUrls.map((url: string, i: number)=>(
                 <Image key={i} 
                 src={url} 
                 alt={url} 
                 width={400} 
-                height={400}/>)}
+                height={400}/>))}
             </Box>
         </Box>
     )
