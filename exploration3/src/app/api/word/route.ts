@@ -5,5 +5,5 @@ export function GET(request: NextRequest){
 
     const query = searchParams.get('word')
 
-    return Response.json({message: "Your Word is " + query})
+    return Response.json({message: `Your Word is ${query}`})
 }

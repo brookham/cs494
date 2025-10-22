@@ -13,12 +13,16 @@ export default function Home() {
   const [response, setResponse] = useState<string | undefined>(undefined)
 
   useEffect(()=>{
-    fetch("/api/word?word=test")                  //gets the GET function for route.ts
-    .then((res)=>res.json())            //gets the json data from the response
-    .then((data)=>setResponse(data.message))  //gets the data from the json
-  }, [])
+    if (savedWord !== ""){
+      fetch(`/api/word?word=${savedWord}`)      //gets the GET function for route.ts
+      .then((res)=>res.json())                  //gets the json data from the response
+      .then((data)=>setResponse(data.message))  //gets the data from the json
+    
+    }
+  }, [savedWord])
 
-  useEffect(()=>{console.log(savedWord)}, [savedWord])
+
+
 
   return (
     <Box>
