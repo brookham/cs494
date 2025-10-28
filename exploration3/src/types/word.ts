@@ -5,7 +5,7 @@ export type Word = {
 }
 
 type Definition = {
-    definitions: string[]
+    definition: string,
     partOfSpeech: string
 }
 
@@ -15,11 +15,23 @@ type rawDef = {
 }
 
 export function wordFromJson(name: string, rawDefs: rawDef[]): Word{
+    const definitions: Definition[] = []
 
-    const defs = rawDefs.map((rawDef)=>{return {partOfSpeech: rawDef.fl, definitions: rawDef.shortdef}})
+    for (let i = 0; i < rawDefs.length; i++){
+
+        const partOfSpeech = rawDefs[i].fl
+
+        for (let j = 0; j < rawDefs[i].shortdef.length; j++){
+            const definition = {
+                partOfSpeech: partOfSpeech,
+                definition: rawDefs[i].shortdef[j]
+            }
+            definitions.push(definition)
+        }
+    }
 
     return {
-        name: name, 
-        definitions: defs
+        name: name,
+        definitions: definitions
     }
 }
