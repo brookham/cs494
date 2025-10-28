@@ -1,5 +1,7 @@
 import { type NextRequest } from "next/server"
 
+import { Word, wordFromJson } from "@/types/word"
+
 export async function GET(request: NextRequest){
     const searchParams = request.nextUrl.searchParams
     const query = searchParams.get('word') ?? ""
@@ -14,5 +16,5 @@ async function getDefinitions(word: string){
     const response = await fetch(url)
     const data = await response.json()
 
-    return data.map((datum: any)=>datum.shortdef)
+    return wordFromJson(word, data)
 }
