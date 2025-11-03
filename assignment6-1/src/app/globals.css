@@ -1,0 +1,97 @@
+/*
+	Theme variables for the app.
+	Usage: add either the `light` or `dark` class to the top-level element (usually <html> or <body>).
+	Example: <html class="dark"> or document.documentElement.classList.add('dark')
+*/
+
+/* Light theme (defaults) */
+.light {
+	--bg: #ffffff;
+	--surface: #f8fafc; /* subtle card/panel */
+	--text: #0f1724; /* primary text */
+	--muted: #475569; /* secondary text */
+	--primary: #1d4ed8; /* links / primary actions */
+	--accent: #7c3aed; /* accents */
+	--success: #16a34a;
+	--danger: #dc2626;
+	--border: #e6e9ef;
+	--shadow: 0 6px 18px rgba(2,6,23,0.08);
+	color-scheme: light;
+}
+
+/* Dark theme */
+.dark {
+	--bg: #071022; /* deep indigo/blue background */
+	--surface: #0b1220; /* card/panel in dark */
+	--text: #e6eef8; /* primary text */
+	--muted: #94a3b8; /* secondary text */
+	--primary: #60a5fa; /* links / primary actions */
+	--accent: #c4b5fd;
+	--success: #34d399;
+	--danger: #fb7185;
+	--border: rgba(255,255,255,0.06);
+	--shadow: 0 8px 24px rgba(0,0,0,0.6);
+	color-scheme: dark;
+}
+
+/* Apply variables to the page and common elements */
+:root {
+	/* sensible fallbacks if no theme class is set */
+	--bg: #ffffff;
+	--surface: #f8fafc;
+	--text: #0f1724;
+	--muted: #475569;
+	--primary: #1d4ed8;
+	--border: #e6e9ef;
+	--shadow: 0 6px 18px rgba(2,6,23,0.08);
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	background-color: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: background-color 180ms ease, color 180ms ease;
+	font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Links */
+a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Buttons and panels */
+button,
+.card {
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow);
+	transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+
+/* Helper classes */
+.muted { color: var(--muted); }
+.primary { color: var(--primary); }
+
+/* Small accessibility helpers */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after { transition: none !important; }
+}
+
+/* Example small components styling to ensure consistent appearance */
+.kbd {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	padding: 0.1rem 0.4rem;
+	border-radius: 6px;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+	font-size: 0.85em;
+}

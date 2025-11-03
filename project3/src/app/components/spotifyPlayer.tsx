@@ -43,3 +43,4 @@ export default function SpotifyPlayer(props: { uri: string }) {
 
   return <div style={{ margin: "50px" }} ref={containerRef} />;
 }
+
