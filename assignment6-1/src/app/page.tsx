@@ -17,7 +17,7 @@ export default function Home() {
     <body className={darkMode ? "dark" : "light"}>
       <Box>
         <Switch
-        value={darkMode}
+        checked={darkMode}
         onChange={(e)=>setDarkMode(e.target.checked)}
         />
         <Typography variant="h5">Hello {name ? name : "World"}</Typography>
