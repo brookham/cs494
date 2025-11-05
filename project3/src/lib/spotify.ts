@@ -1,5 +1,5 @@
-import { redis } from "./redis";
 import { mapTracks } from "@/types/tracks";
+import { redis } from "./redis";
 
 export async function getAccessToken(): Promise<string>{
   const clientId = process.env.SPOTIFY_CLIENT_ID!;
@@ -35,10 +35,6 @@ export async function searchSpotify(query: string){
   const r = await fetch(url, {headers: {Authorization: `Bearer ${token}`}})
   const data = await r.json()
   
-  return data.tracks.items
-
-  // const mappedData = mapTracks(data.tracks.items)
-
-  // return mappedData
+  return mapTracks(data.tracks.items)
 
 }

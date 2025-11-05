@@ -27,9 +27,9 @@ export function mapTracks(rawTrack: rawTrackInfo[]): Track[]{
   const tracks =  rawTrack.map((track)=>{
     return{
       name: track.name,
-      artists: track.artists.map(artists => artists.name),
+      artists: track.artists.map((artist) => artist.name),
       uri: track.uri,
-      image: track.album?.images?.[0]?.url
+      image: track.album.images[0]?.url || ""
     }
   })
 

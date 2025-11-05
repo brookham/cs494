@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react'
 
 export default function SpotifyPlayer(props: { uri: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
