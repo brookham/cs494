@@ -43,7 +43,7 @@ async function getFavoritePokemon(hash: number){
   let r = await fetch("https://pokeapi.co/api/v2/pokemon")
   let data = await r.json()
 
-  const count = data.count
+  const count = 1025
 
   const pokemonId = hash % count + 1
 
